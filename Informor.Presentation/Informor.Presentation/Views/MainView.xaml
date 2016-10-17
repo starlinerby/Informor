@@ -2,6 +2,14 @@
 <views:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:Informor.Presentation.Views;assembly=Informor.Presentation"
+             xmlns:utils="clr-namespace:Informor.Presentation.Utils;assembly=Informor.Presentation"
              x:Class="Informor.Presentation.Views.MainView">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+  <AbsoluteLayout>
+    <Button AbsoluteLayout.LayoutBounds="0.5,0.1,1,.2" Text="{utils:Translate Map_Text}"
+                AbsoluteLayout.LayoutFlags="All" ></Button>
+    <Button AbsoluteLayout.LayoutBounds="0.5,0.35,1,.2" Text="{utils:Translate Menu_Text}"
+                AbsoluteLayout.LayoutFlags="All"></Button>
+    <Button AbsoluteLayout.LayoutBounds="0.5,0.6,1,.2" Text="{utils:Translate Settings_Text}"
+                AbsoluteLayout.LayoutFlags="All"></Button>
+  </AbsoluteLayout>
 </views:BaseContentPage>

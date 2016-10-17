@@ -1,33 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using Informor.Presentation.ViewModels;
+using Informor.Presentation.Views;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+using XLabs.Ioc;
 
 namespace Informor.Presentation
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public class App : Application
     {
         public App()
         {
             // The root page of your application
-            var content = new ContentPage
-            {
-                Title = "Informor.Presentation",
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
+            var container = new SimpleContainer();
 
-            MainPage = new NavigationPage(content);
+            var mainView = new MainView();
+            MainPage = new NavigationPage(mainView);
+            var mainViewModel = new MainViewModel(MainPage.Navigation);
+            container.Register<MainViewModel>(mainViewModel);
+
+            mainView.BindingContext = mainViewModel;
         }
 
         protected override void OnStart()

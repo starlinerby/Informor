@@ -6,3 +6,4 @@ src/.vs/BrainTrainer/v14/.suo
 src/BrainTrainer/BrainTrainer.WinPhone/BrainTrainer.WinPhone.csproj.user
 src/UpgradeLog.htm
 src/BrainTrainer.sln.DotSettings.user
+*.suo
